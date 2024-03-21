@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:untis2/pages/home.dart';
 import 'package:untis2/pages/stundenplan.dart';
 import 'package:untis2/pages/allgemeines.dart';
@@ -31,33 +32,42 @@ class _FirstPageState extends State<FirstPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: pages[selected],
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color.fromARGB(255, 10, 21, 38),
-        unselectedItemColor: const Color.fromARGB(255, 0, 0, 0),
-        selectedItemColor: const Color(0xFF2A78FF),
-        currentIndex: selected,
-        onTap: navigateBottomBar,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+      bottomNavigationBar: Container(
+        color: Color.fromARGB(255, 56, 56, 56),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 15,
+            vertical: 10
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.show_chart_rounded),
-            label: 'Stats',
+          child: GNav(
+            padding: EdgeInsets.all(15),
+            backgroundColor: Color.fromARGB(255, 56, 56, 56),
+            color: Colors.white,
+            activeColor: Colors.white,
+            tabBackgroundColor: Colors.lightBlue,
+            onTabChange: (value) => navigateBottomBar(value),
+            tabs: const [
+              GButton(
+                icon: Icons.home,
+                text: 'Home',
+              ),
+              GButton(
+                icon: Icons.schedule_rounded,
+                text: 'Stundenplan',
+              ),
+              GButton(
+                icon: Icons.info_outline_rounded,
+                text: 'Allgemeines',
+              ),
+              GButton(
+                icon: Icons.settings,
+                text: 'Einstellungen',
+              ),
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.abc_sharp),
-            label: 'test',
-          ),
-        ],
+        ),
       ),
     );
   }
 }
+
