@@ -33,15 +33,15 @@ class _FirstPageState extends State<FirstPage> {
     return Scaffold(
       body: pages[selected],
       bottomNavigationBar: Container(
-        color: Color.fromARGB(255, 56, 56, 56),
+        color: const Color.fromARGB(255, 43, 45, 59),
         child: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 15,
             vertical: 10
           ),
           child: GNav(
-            padding: EdgeInsets.all(15),
-            backgroundColor: Color.fromARGB(255, 56, 56, 56),
+            padding: const EdgeInsets.all(15),
+            backgroundColor: const Color.fromARGB(255, 43, 45, 59),
             color: Colors.white,
             activeColor: Colors.white,
             tabBackgroundColor: Colors.lightBlue,
