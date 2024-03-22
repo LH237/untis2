@@ -9,6 +9,7 @@ class AllgemeinesPage extends StatefulWidget {
 
 class _AllgemeinesPageState extends State<AllgemeinesPage> with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  
 
   @override
   void initState() {
@@ -71,7 +72,7 @@ class _AllgemeinesPageState extends State<AllgemeinesPage> with SingleTickerProv
             Expanded(
               child: TabBarView(
                 controller: _tabController,
-                children: [
+                children: const [
                   Icon(Icons.add, size: 100, color: Colors.white,),
                   Icon(Icons.add, size: 100, color: Colors.white,),
                   Icon(Icons.add, size: 100, color: Colors.white,),
@@ -88,5 +89,5 @@ class _AllgemeinesPageState extends State<AllgemeinesPage> with SingleTickerProv
   void dispose() {
     _tabController.dispose();
     super.dispose();
-  }
+   }
 }
