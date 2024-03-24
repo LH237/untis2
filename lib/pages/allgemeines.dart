@@ -9,7 +9,6 @@ class AllgemeinesPage extends StatefulWidget {
 
 class _AllgemeinesPageState extends State<AllgemeinesPage> with SingleTickerProviderStateMixin {
   late TabController _tabController;
-  
 
   @override
   void initState() {

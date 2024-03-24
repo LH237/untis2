@@ -52,7 +52,7 @@ class _FirstPageState extends State<FirstPage> {
                 text: 'Home',
               ),
               GButton(
-                icon: Icons.schedule_rounded,
+                icon: Icons.space_dashboard_outlined,
                 text: 'Stundenplan',
               ),
               GButton(

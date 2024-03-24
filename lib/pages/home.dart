@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 5, vsync: this);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,115 +43,44 @@ class HomePage extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  height: 110,
-                  width: 50,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20)
-                  ),
-                  child: Container(
-                    width: 40,
-                    height: 70,
-                    color: Colors.transparent,
-                    alignment: Alignment.center,
-                    child: const Text(
-                      '01\n\nMo',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white
-                      ),
-                      ),
-                  ),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: Colors.transparent
+              ),
+              height: 110,
+              width: MediaQuery.of(context).size.width - 40,
+              child: TabBar(
+                controller: _tabController,
+                labelColor: Colors.white,
+                unselectedLabelColor: Colors.white,
+                indicatorColor: Colors.lightBlue,
+                indicator: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25),
+                  color: Colors.lightBlue,
                 ),
-                Container(
-                  height: 110,
-                  width: 50,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: Colors.lightBlue,
-                    borderRadius: BorderRadius.circular(20)
-                  ),
-                  child: Container(
-                    width: 40,
-                    height: 70,
-                    alignment: Alignment.center,
-                    child: const Text(
-                      '02\n\nDi',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white
-                      ),
-                      ),
-                  ),
-                ),
-                Container(
-                  height: 110,
-                  width: 50,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20)
-                  ),
-                  child: Container(
-                    width: 40,
-                    height: 70,
-                    color: Colors.transparent,
-                    alignment: Alignment.center,
-                    child: const Text(
-                      '03\n\nMi',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white
-                      ),
-                      ),
-                  ),
-                ),
-                Container(
-                  height: 110,
-                  width: 50,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20)
-                  ),
-                  child: Container(
-                    width: 40,
-                    height: 70,
-                    color: Colors.transparent,
-                    alignment: Alignment.center,
-                    child: const Text(
-                      '04\n\nDo',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white
-                      ),
-                      ),
-                  ),
-                ),
-                Container(
-                  height: 110,
-                  width: 50,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20)
-                  ),
-                  child: Container(
-                    width: 40,
-                    height: 70,
-                    color: Colors.transparent,
-                    alignment: Alignment.center,
-                    child: const Text(
-                      '05\n\nFr',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white
-                      ),
-                      ),
-                  ),
-                ),
-              ],
+                indicatorSize: TabBarIndicatorSize.tab,
+                dividerColor: const Color.fromARGB(255, 43, 45, 59),
+                tabs: const [
+                  Tab(text: '01\nMo'),
+                  Tab(text: '02\nDi'),
+                  Tab(text: '03\nMi'),
+                  Tab(text: '04\nDo'),
+                  Tab(text: '05\nFr'),
+                ],
+              ),
+            ),
+            Expanded(
+              child: TabBarView(
+                controller: _tabController,
+                children: const [
+                  Icon(Icons.add, size: 100, color: Colors.white,),
+                  Icon(Icons.add, size: 100, color: Colors.white,),
+                  Icon(Icons.add, size: 100, color: Colors.white,),
+                  Icon(Icons.add, size: 100, color: Colors.white,),
+                  Icon(Icons.add, size: 100, color: Colors.white,),
+                ],
+              ),
             )
           ],
         ),
