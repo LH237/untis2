@@ -31,7 +31,11 @@ dependencies:
   flutter:
     sdk: flutter
   google_nav_bar: ^5.0.6
+<<<<<<< HEAD
   dart_untis_mobile: ^1.0.1
+=======
+  table_calendar: ^3.0.8
+>>>>>>> 79b510fbf51c310efb049161b8838c465aff8684
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -40,6 +44,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
